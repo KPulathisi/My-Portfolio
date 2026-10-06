@@ -1,0 +1,116 @@
+/* =========================================================================
+   PROJECTS DATA — edit this file to update your work section.
+   -------------------------------------------------------------------------
+   live:        URL of a running demo. It is shown as a live preview inside
+                the card and opens full-screen in the demo modal.
+   screenshots: image paths, e.g. "assets/projects/school-php/1.webp".
+                Leave [] to show a placeholder until you add them.
+   video:       path to an .mp4/.webm screen recording (or "" for none).
+                e.g. "assets/projects/school-php/demo.mp4"
+   ========================================================================= */
+window.PROJECTS = [
+  {
+    id: "isdn",
+    title: "IslandLink Sales Distribution Network",
+    short: "ISDN",
+    year: "2026",
+    tagline: "Multi-role distribution platform for wholesale & retail operations across regional centers.",
+    description:
+      "A production-style web app that runs the full order lifecycle — product catalog, multi-location real-time inventory, delivery tracking, payments and an analytics dashboard — with separate experiences for retail customers, RDC staff, logistics teams and head-office admins.",
+    highlights: [
+      "Role-based access for 4 user types",
+      "Real-time Firestore inventory sync",
+      "Analytics dashboard with Recharts",
+      "Dark / light theme, mobile-first"
+    ],
+    stack: ["React 18", "TypeScript", "Firebase", "Tailwind", "Zustand", "Recharts"],
+    live: "https://kpulathisi.github.io/SDN/",
+    repo: "https://github.com/KPulathisi/SDN",
+    screenshots: [],
+    video: "",
+    accent: "#5cf2ff"
+  },
+  {
+    id: "richlife",
+    title: "Rich Life Apparel",
+    short: "Rich Life",
+    year: "2026",
+    tagline: "A modern, animated storefront for a clothing brand.",
+    description:
+      "Brand website for an apparel label with an announcement bar, animated hero, collections for men, women and accessories, new arrivals, brand story, testimonials and newsletter — built as a fast single-page React app and deployed automatically with GitHub Actions.",
+    highlights: [
+      "Component-driven React + Chakra UI",
+      "Animated hero & marquee banner",
+      "Responsive collection grids",
+      "CI/CD to GitHub Pages"
+    ],
+    stack: ["React", "TypeScript", "Chakra UI", "Tailwind", "Vite"],
+    live: "https://kpulathisi.github.io/Richlife/",
+    repo: "https://github.com/KPulathisi/Richlife",
+    screenshots: [],
+    video: "",
+    accent: "#ffb86b"
+  },
+  {
+    id: "school-php",
+    title: "School Management System",
+    short: "SMS · PHP",
+    year: "2025",
+    tagline: "Role-based school platform — my individual HNDIT final project.",
+    description:
+      "Individually built end-to-end: a public homepage with events and feedback, plus dashboards for Admin, Teacher, Student and Staff. Covers user management, timetable builder, attendance, marks, term reports with downloadable report cards, and Chart.js analytics — with secure session-based login and access control.",
+    highlights: [
+      "4 role dashboards + public site",
+      "Timetable, attendance & marks modules",
+      "Term reports & report cards",
+      "Chart.js analytics"
+    ],
+    stack: ["PHP", "MySQL", "JavaScript", "Chart.js", "HTML/CSS"],
+    live: "",
+    repo: "https://github.com/KPulathisi/Final-Project2",
+    screenshots: [],
+    video: "",
+    accent: "#a78bfa"
+  }
+];
+
+/* Team & open-source contributions — listed under "Team contributions".
+   role: what YOU did on the project (shown in the list). */
+window.MORE_PROJECTS = [
+  {
+    title: "CEB Quotation Management System",
+    note: "Built the billing section, added dynamic form dropdowns and refactored the codebase",
+    stack: "PHP · Supabase",
+    repo: "https://github.com/tharindi212/CEB_SYSTEM"
+  },
+  {
+    title: "Complaint Management System",
+    note: "Implemented the email-sending feature, fixed header/footer routing and seeded data",
+    stack: "PHP · Supabase",
+    repo: "https://github.com/Yoshan2002/Complaint-Management-System"
+  },
+  {
+    title: "Court Case Management System",
+    note: "Implemented enforced user entry / authentication flow for case management",
+    stack: "PHP · MySQL",
+    repo: "https://github.com/SHLiyanaarachchi/Court-Case-Management"
+  },
+  {
+    title: "Library Management System",
+    note: "Set up the initial project — React + Vite frontend with a Node server",
+    stack: "React · Node · Tailwind",
+    repo: "https://github.com/D-Chanmini/Library-Management-System"
+  },
+  {
+    title: "Employee Management System",
+    note: "Added new application sections to a Laravel-based HR app",
+    stack: "Laravel · Blade",
+    repo: "https://github.com/Shayinikawee/employee-management"
+  },
+  {
+    title: "NIS — National Immunization System",
+    note: "Designed newborn registration modules with validated vaccine data entry",
+    stack: "Java Swing · MySQL",
+    repo: "https://github.com/TANCodeZen/Group-Project"
+  }
+];
