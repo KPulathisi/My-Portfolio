@@ -1,6 +1,6 @@
 # Kavinda Pulathisi — Portfolio
 
-Static site (no build step): HTML + CSS + JS with GSAP/ScrollTrigger, Lenis smooth scroll and a Three.js hero. All libraries are bundled in `assets/vendor`, so it also works when you open `index.html` straight from your computer.
+Static site (no build step): HTML + CSS + JS with GSAP/ScrollTrigger, Lenis smooth scroll and a live WebGL shader hero (drag the core, click to send a pulse). All libraries are bundled in `assets/vendor`, so it also works when you open `index.html` straight from your computer.
 
 ## Deploy free on GitHub Pages
 
@@ -25,11 +25,12 @@ Every later push to `main` updates the site automatically.
 
 | What | Where |
 |---|---|
-| Project screenshots / demo videos | Put files in `assets/projects/<project-id>/`, then list them in `projects.js` (`screenshots: [...]`, `video: "..."`) |
+| Project screenshots | Put files in `assets/projects/<project-id>/`, then list them in `projects.js` (`screenshots: [...]`) |
+| Hero energy core (position, colours, effects) | `hero3d.js` — colours come from `--c1/--c2/--c3` in `style.css` |
 | Add / remove / reorder projects | `projects.js` (`PROJECTS` = big cards, `MORE_PROJECTS` = contributions list) |
 | Journey (jobs & education) | `index.html` → the `JOURNEY` section |
 | CV file | Replace `assets/Kavinda_Pulathisi_CV.pdf` (keep the same name) |
-| Use a Spline 3D scene instead of the Three.js orb | `hero3d.js` → set `SPLINE_SCENE` to your Spline `.splinecode` URL |
+| Use a Spline 3D scene instead of the shader hero | `hero3d.js` → set `SPLINE_SCENE` to your Spline `.splinecode` URL |
 | Photos | `assets/img/` |
 
-Tip: export screenshots as `.webp` (~1600px wide) and keep demo videos short (15–40 s, under ~8 MB, `.mp4`).
+Tip: export screenshots as `.webp` (~1600px wide).

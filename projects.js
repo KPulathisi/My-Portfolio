@@ -3,10 +3,10 @@
    -------------------------------------------------------------------------
    live:        URL of a running demo. It is shown as a live preview inside
                 the card and opens full-screen in the demo modal.
+   embed:       set to false if the live site can't be shown inside another
+                page (it then opens in a new tab instead).
    screenshots: image paths, e.g. "assets/projects/school-php/1.webp".
                 Leave [] to show a placeholder until you add them.
-   video:       path to an .mp4/.webm screen recording (or "" for none).
-                e.g. "assets/projects/school-php/demo.mp4"
    ========================================================================= */
 window.PROJECTS = [
   {
@@ -27,8 +27,7 @@ window.PROJECTS = [
     live: "https://kpulathisi.github.io/SDN/",
     repo: "https://github.com/KPulathisi/SDN",
     screenshots: [],
-    video: "",
-    accent: "#5cf2ff"
+    accent: "#6b94ff"
   },
   {
     id: "richlife",
@@ -48,8 +47,7 @@ window.PROJECTS = [
     live: "https://kpulathisi.github.io/Richlife/",
     repo: "https://github.com/KPulathisi/Richlife",
     screenshots: [],
-    video: "",
-    accent: "#ffb86b"
+    accent: "#7ad7ff"
   },
   {
     id: "school-php",
@@ -66,11 +64,11 @@ window.PROJECTS = [
       "Chart.js analytics"
     ],
     stack: ["PHP", "MySQL", "JavaScript", "Chart.js", "HTML/CSS"],
-    live: "",
+    live: "https://leedsinternationals.free.nf/?i=1",
+    embed: false, // free host blocks being shown inside another site, so it opens in a new tab
     repo: "https://github.com/KPulathisi/Final-Project2",
     screenshots: [],
-    video: "",
-    accent: "#a78bfa"
+    accent: "#a5b4fc"
   }
 ];
 

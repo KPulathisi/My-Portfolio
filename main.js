@@ -18,20 +18,19 @@
   (window.PROJECTS || []).forEach((p, i) => {
     const hasShots = p.screenshots && p.screenshots.length;
     let screen;
-    if (p.live) {
+    const embed = p.live && p.embed !== false;
+    if (embed) {
       screen = `<div class="browser__loading">Loading live preview…</div><iframe data-src="${p.live}" title="${p.title} live preview" loading="lazy" tabindex="-1"></iframe><div class="browser__shield"></div>`;
-    } else if (p.video) {
-      screen = `<video src="${p.video}" muted loop playsinline autoplay></video>`;
     } else if (hasShots) {
       screen = `<img src="${p.screenshots[0]}" alt="${p.title} screenshot" loading="lazy" />`;
     } else {
-      screen = `<div class="placeholder"><div><div class="placeholder__icon">▶</div><div class="placeholder__title">${p.short}</div><div class="placeholder__note">Screenshots &amp; demo video coming soon</div></div></div>`;
+      screen = `<div class="placeholder"><div><div class="placeholder__icon">▶</div><div class="placeholder__title">${p.short}</div><div class="placeholder__note">Screenshots coming soon</div></div></div>`;
     }
     const el = document.createElement("article");
     el.className = "project";
-    el.style.setProperty("--accent", p.accent || "#5cf2ff");
+    el.style.setProperty("--accent", p.accent || "#6b94ff");
     el.innerHTML = `
-      <div class="project__media" data-cursor="view" data-label="${p.live ? "LIVE DEMO" : "DEMO"}" data-open="${i}">
+      <div class="project__media" data-cursor="view" data-label="${p.live ? "LIVE DEMO" : "DEMO"}" ${embed || !p.live ? `data-open="${i}"` : `data-ext="${p.live}"`}>
         <div class="browser">
           <div class="browser__bar"><div class="browser__dots"><i></i><i></i><i></i></div>
             <div class="browser__url">${p.live ? host(p.live) : host(p.repo)}</div>
@@ -39,7 +38,7 @@
           </div>
           <div class="browser__screen">${screen}</div>
         </div>
-        <span class="project__float">${p.live ? "▶ Click to try it" : "▶ View demo"}</span>
+        <span class="project__float">${embed ? "▶ Click to try it" : p.live ? "↗ Opens live site" : "▶ View demo"}</span>
       </div>
       <div class="project__body">
         <div class="project__meta mono"><span class="project__num">${pad(i + 1)} / ${pad(window.PROJECTS.length)}</span><span>${p.year}</span></div>
@@ -48,7 +47,9 @@
         <ul class="project__hl">${p.highlights.map((h) => `<li>${h}</li>`).join("")}</ul>
         <ul class="chips">${p.stack.map((s) => `<li>${s}</li>`).join("")}</ul>
         <div class="project__actions">
-          <button class="pbtn pbtn--main" data-open="${i}" data-cursor="hover">${p.live ? "Launch live demo" : "Watch demo"} <span>↗</span></button>
+          ${embed ? `<button class="pbtn pbtn--main" data-open="${i}" data-cursor="hover">Launch live demo <span>↗</span></button>`
+            : p.live ? `<a class="pbtn pbtn--main" href="${p.live}" target="_blank" rel="noopener" data-cursor="hover">Open live site <span>↗</span></a>`
+            : `<button class="pbtn pbtn--main" data-open="${i}" data-cursor="hover">View screenshots <span>↗</span></button>`}
           ${p.repo ? `<a class="pbtn" href="${p.repo}" target="_blank" rel="noopener" data-cursor="hover">Source code</a>` : ""}
         </div>
       </div>`;
@@ -84,6 +85,20 @@
     { rootMargin: "300px 600px" }
   );
   $$(".project").forEach((p) => ioFrames.observe(p));
+  function fitPreviews() {
+    $$(".browser__screen iframe").forEach((f) => {
+      const box = f.parentElement;
+      const w = box.clientWidth, h = box.clientHeight;
+      if (!w) return;
+      const virtualW = w < 560 ? 390 : 1280; // render the site at phone width on phones
+      const s = w / virtualW;
+      f.style.width = virtualW + "px";
+      f.style.height = h / s + "px";
+      f.style.transform = `scale(${s})`;
+    });
+  }
+  fitPreviews();
+  window.addEventListener("resize", fitPreviews);
 
   /* ------------------------------------------------------------------
      Text splitting helpers
@@ -133,6 +148,8 @@
   /* ------------------------------------------------------------------
      Preloader → intro
   ------------------------------------------------------------------ */
+  // failsafe: never let the preloader block the page (e.g. if the tab loads in the background)
+  setTimeout(() => { const pl = $(".preloader"); if (pl) { pl.remove(); document.body.classList.remove("is-loading"); lenis && lenis.start(); ScrollTrigger.refresh(); } }, 6000);
   const counter = { v: 0 };
   const countEl = $("#loadCount");
   const loadTl = gsap.timeline();
@@ -157,7 +174,8 @@
   function intro() {
     const tl = gsap.timeline();
     tl.from(".hero__title .char", { yPercent: 115, rotate: 8, duration: 1.2, ease: "expo.out", stagger: 0.035 })
-      .from("#hero3d", { opacity: 0, scale: 0.85, duration: 1.6, ease: "expo.out" }, 0)
+      .from("#hero3d", { opacity: 0, scale: 1.12, duration: 2, ease: "expo.out" }, 0)
+      .from(".hero__hint", { opacity: 0, y: 12, duration: 0.8, ease: "power3.out" }, 1.1)
       .from(".hero__eyebrow", { y: 20, opacity: 0, duration: 0.8, ease: "power3.out" }, 0.3)
       .from(".hero__role, .hero__actions > *", { y: 30, opacity: 0, duration: 0.9, ease: "power3.out", stagger: 0.1 }, 0.5)
       .from(".nav > *", { y: -30, opacity: 0, duration: 0.8, ease: "power3.out", stagger: 0.06 }, 0.4)
@@ -178,8 +196,11 @@
     const rx = gsap.quickTo(ring, "x", { duration: 0.45, ease: "power3" });
     const ry = gsap.quickTo(ring, "y", { duration: 0.45, ease: "power3" });
     window.addEventListener("pointermove", (e) => {
+      cursor.classList.remove("is-out");
       dx(e.clientX); dy(e.clientY); rx(e.clientX); ry(e.clientY);
     });
+    document.addEventListener("pointerleave", () => cursor.classList.add("is-out"));
+    window.addEventListener("blur", () => cursor.classList.add("is-out"));
     document.addEventListener("pointerover", (e) => {
       const t = e.target.closest("[data-cursor]");
       cursor.classList.toggle("is-hover", !!t && t.dataset.cursor === "hover");
@@ -259,7 +280,7 @@
   })
     .to(".hero__title .line:first-child", { xPercent: -12, ease: "none" }, 0)
     .to(".hero__title .line--outline", { xPercent: 10, ease: "none" }, 0)
-    .to(".hero__inner", { yPercent: -18, opacity: 0, ease: "none" }, 0);
+    .to(".hero__inner, .hero__hint", { yPercent: -18, opacity: 0, ease: "none" }, 0);
 
   /* ------------------------------------------------------------------
      Marquee — infinite, reacts to scroll velocity & direction
@@ -382,8 +403,9 @@
   $$(".tl-item").forEach((it) => {
     ScrollTrigger.create({ trigger: it, start: "top 65%", onEnter: () => it.classList.add("is-active"), onLeaveBack: () => it.classList.remove("is-active") });
     const left = window.innerWidth > 900 && !it.classList.contains("tl-item--r");
-    gsap.from(it.querySelector(".tl-card"), { x: left ? -60 : 60, rotateY: left ? 12 : -12, transformPerspective: 1000, opacity: 0, duration: 1.1, ease: "expo.out", scrollTrigger: { trigger: it, start: "top 85%" } });
-    gsap.from(it.querySelectorAll(".grades li"), { scale: 0.6, opacity: 0, duration: 0.5, stagger: 0.04, ease: "back.out(2)", scrollTrigger: { trigger: it, start: "top 75%" } });
+    const wide = window.innerWidth > 900;
+    gsap.from(it.querySelector(".tl-card"), { x: wide ? (left ? -60 : 60) : 0, y: wide ? 0 : 40, rotateY: wide ? (left ? 12 : -12) : 0, transformPerspective: 1000, opacity: 0, duration: 1.1, ease: "expo.out", scrollTrigger: { trigger: it, start: "top 85%" } });
+    if (it.querySelector(".grades")) gsap.from(it.querySelectorAll(".grades li"), { scale: 0.6, opacity: 0, duration: 0.5, stagger: 0.04, ease: "back.out(2)", scrollTrigger: { trigger: it, start: "top 75%" } });
   });
 
   /* ------------------------------------------------------------------
@@ -419,22 +441,22 @@
 
   function openDemo(i) {
     const p = window.PROJECTS[i];
+    const embed = p.live && p.embed !== false;
     body.className = "modal__body";
     $("#modalUrl").textContent = p.live || p.repo || p.title;
+    $("#modalTitle").textContent = p.short || p.title;
     const openBtn = $("#modalOpen");
     openBtn.href = p.live || p.repo || "#";
-    $$(".modal__btn[data-view]").forEach((b) => (b.style.display = p.live ? "" : "none"));
+    $$(".modal__btn[data-view]").forEach((b) => (b.style.display = embed ? "" : "none"));
     $('.modal__btn[data-view="desktop"]').classList.add("is-on");
     $('.modal__btn[data-view="mobile"]').classList.remove("is-on");
 
-    if (p.live) {
-      body.innerHTML = `<iframe src="${p.live}" title="${p.title} live demo"></iframe>`;
+    if (embed) {
+      body.innerHTML = `<div class="modal__loading mono">Loading live demo…</div><iframe src="${p.live}" title="${p.title} live demo" allow="clipboard-write; fullscreen" allowfullscreen></iframe>`;
     } else {
       const slides = [];
-      if (p.video) slides.push(`<video src="${p.video}" controls playsinline autoplay muted></video>`);
       (p.screenshots || []).forEach((s) => slides.push(`<img src="${s}" alt="${p.title} screenshot" />`));
       if (!slides.length) {
-        slides.push(`<div class="placeholder" style="--accent:${p.accent}"><div><div class="placeholder__icon">▶</div><div class="placeholder__title">Demo video coming soon</div><div class="placeholder__note">Add a screen recording in projects.js</div></div></div>`);
         slides.push(`<div class="placeholder" style="--accent:${p.accent}"><div><div class="placeholder__icon">▣</div><div class="placeholder__title">Screenshots coming soon</div><div class="placeholder__note">assets/projects/${p.id}/</div></div></div>`);
       }
       body.innerHTML = `<div class="gallery">${slides.map((s, k) => `<div class="gallery__slide${k ? "" : " is-active"}">${s}</div>`).join("")}
@@ -445,8 +467,10 @@
 
     modal.classList.add("is-open");
     modal.setAttribute("aria-hidden", "false");
+    if (!(history.state && history.state.demo !== undefined)) history.pushState({ demo: i }, "", "#demo-" + p.id);
     lenis && lenis.stop();
     document.body.style.overflow = "hidden";
+    document.documentElement.classList.add("modal-open");
     gsap.timeline()
       .to(".modal__backdrop", { opacity: 1, duration: 0.4 })
       .fromTo(".modal__panel", { y: 60, scale: 0.92, opacity: 0, clipPath: "inset(10% 10% 10% 10% round 18px)" }, { y: 0, scale: 1, opacity: 1, clipPath: "inset(0% 0% 0% 0% round 18px)", duration: 0.8, ease: "expo.out" }, 0.05);
@@ -475,6 +499,7 @@
         modal.setAttribute("aria-hidden", "true");
         body.innerHTML = "";
         document.body.style.overflow = "";
+        document.documentElement.classList.remove("modal-open");
         lenis && lenis.start();
       }
     })
@@ -483,16 +508,23 @@
   }
 
   document.addEventListener("click", (e) => {
+    const x = e.target.closest("[data-ext]");
+    if (x) { window.open(x.dataset.ext, "_blank", "noopener"); return; }
     const o = e.target.closest("[data-open]");
     if (o) { e.preventDefault(); openDemo(+o.dataset.open); return; }
-    if (e.target.closest("[data-close]")) closeDemo();
+    if (e.target.closest("[data-close]")) requestClose();
     const v = e.target.closest(".modal__btn[data-view]");
     if (v) {
       body.classList.toggle("is-mobile", v.dataset.view === "mobile");
       $$(".modal__btn[data-view]").forEach((b) => b.classList.toggle("is-on", b === v));
     }
   });
-  document.addEventListener("keydown", (e) => e.key === "Escape" && modal.classList.contains("is-open") && closeDemo());
+  function requestClose() {
+    if (history.state && history.state.demo !== undefined) history.back(); // popstate → closeDemo
+    else closeDemo();
+  }
+  window.addEventListener("popstate", () => { if (modal.classList.contains("is-open")) closeDemo(); });
+  document.addEventListener("keydown", (e) => e.key === "Escape" && modal.classList.contains("is-open") && requestClose());
 
   window.addEventListener("load", () => ScrollTrigger.refresh());
 })();

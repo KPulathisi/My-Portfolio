@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Kavinda Pulathisi — Associate Software Developer</title>
   <meta name="description" content="Portfolio of Kavinda Pulathisi, Associate Software Developer from Sri Lanka. Full-stack web apps with React, TypeScript, PHP, Java, C# and SQL." />
-  <meta name="theme-color" content="#06060a" />
+  <meta name="theme-color" content="#05070d" />
   <meta property="og:title" content="Kavinda Pulathisi — Associate Software Developer" />
   <meta property="og:description" content="Full-stack developer building web apps with React, TypeScript, PHP & SQL." />
   <meta property="og:image" content="https://kpulathisi.github.io/My-Portfolio/assets/img/kavinda-portrait.jpg" />
@@ -53,9 +53,12 @@
 
     <!-- ============ HERO ============ -->
     <section class="hero" id="hero">
+      <!-- live WebGL energy core (hero3d.js) -->
       <canvas id="hero3d" aria-hidden="true"></canvas>
+      <div class="hero__shade" aria-hidden="true"></div>
       <!-- Optional Spline scene is injected here when SPLINE_SCENE is set in main.js -->
       <div id="splineMount" class="spline-mount"></div>
+      <p class="hero__hint mono" aria-hidden="true"><i></i><span class="hint--mouse">Drag the core · click anywhere</span><span class="hint--touch">Tap to send a pulse</span></p>
 
       <div class="hero__inner">
         <p class="hero__eyebrow mono"><span class="pulse"></span> Available for opportunities · Sri Lanka</p>
@@ -106,7 +109,7 @@
           <p class="fade-up">Lately I've been shipping React + TypeScript apps on Firebase and Supabase, and layered Node/Express backends. Before that, PHP, Java Swing and C# desktop systems taught me the fundamentals: solid data models, secure auth, and software that real people actually use.</p>
           <div class="stats">
             <div class="stat"><span class="stat__num" data-count="14">0</span><span class="stat__label">Repos built &amp; contributed to</span></div>
-            <div class="stat"><span class="stat__num" data-count="2">0</span><span class="stat__label">Live web deployments</span></div>
+            <div class="stat"><span class="stat__num" data-count="3">0</span><span class="stat__label">Live web deployments</span></div>
             <div class="stat"><span class="stat__num" data-count="7" data-suffix="+">0</span><span class="stat__label">Languages &amp; runtimes</span></div>
           </div>
         </div>
@@ -312,7 +315,8 @@
     <div class="modal__backdrop" data-close></div>
     <div class="modal__panel">
       <div class="modal__bar">
-        <div class="modal__dots"><i></i><i></i><i></i></div>
+        <button class="modal__back" data-close aria-label="Back to portfolio" data-cursor="hover">← <span>Back</span></button>
+        <div class="modal__title" id="modalTitle"></div>
         <div class="modal__url mono" id="modalUrl"></div>
         <div class="modal__tools">
           <button class="modal__btn" data-view="desktop" aria-label="Desktop view" data-cursor="hover">▭</button>
@@ -330,7 +334,6 @@
   <script src="assets/vendor/ScrollTrigger.min.js"></script>
   <script src="assets/vendor/lenis.min.js"></script>
   <script src="projects.js"></script>
-  <script src="assets/vendor/three.min.js"></script>
   <script src="hero3d.js"></script>
   <script src="main.js"></script>
 </body>
