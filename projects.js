@@ -67,7 +67,7 @@ window.PROJECTS = [
     live: "https://leedsinternationals.free.nf/?i=1",
     embed: false, // free host blocks being shown inside another site, so it opens in a new tab
     repo: "https://github.com/KPulathisi/Final-Project2",
-    screenshots: [],
+    screenshots: ["assets/projects/school-php/1.webp", "assets/projects/school-php/2.webp", "assets/projects/school-php/3.webp"],
     accent: "#a5b4fc"
   }
 ];
