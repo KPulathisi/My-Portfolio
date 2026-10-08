@@ -54,7 +54,7 @@ window.PROJECTS = [
     title: "School Management System",
     short: "SMS · PHP",
     year: "2025",
-    tagline: "Role-based school platform — my individual HNDIT final project.",
+    tagline: "Role-based school platform. My individual HNDIT final project.",
     description:
       "Individually built end-to-end: a public homepage with events and feedback, plus dashboards for Admin, Teacher, Student and Staff. Covers user management, timetable builder, attendance, marks, term reports with downloadable report cards, and Chart.js analytics — with secure session-based login and access control.",
     highlights: [
@@ -95,7 +95,7 @@ window.MORE_PROJECTS = [
   },
   {
     title: "Library Management System",
-    note: "Set up the initial project — React + Vite frontend with a Node server",
+    note: "Set up the initial project, React + Vite frontend with a Node server",
     stack: "React · Node · Tailwind",
     repo: "https://github.com/D-Chanmini/Library-Management-System"
   },
@@ -106,7 +106,7 @@ window.MORE_PROJECTS = [
     repo: "https://github.com/Shayinikawee/employee-management"
   },
   {
-    title: "NIS — National Immunization System",
+    title: "NIS - National Immunization System",
     note: "Designed newborn registration modules with validated vaccine data entry",
     stack: "Java Swing · MySQL",
     repo: "https://github.com/TANCodeZen/Group-Project"

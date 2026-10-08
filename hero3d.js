@@ -221,13 +221,9 @@ function toShader(e) {
 const coreR = () => (narrow() ? 0.1 : 0.115);
 const nearCore = (p) => Math.hypot(p.x - core.x, p.y - core.y) < coreR() * 1.6;
 
-/* cursor ring shows "DRAG" over the core (desktop only) */
-const cursor = document.querySelector(".cursor");
-const cursorLabel = document.querySelector(".cursor__label");
+/* grab cursor over the core (desktop only) */
 function setCursor(on) {
-  if (!cursor) return;
-  cursor.classList.toggle("is-grab", on);
-  if (on) cursorLabel.textContent = dragging ? "FLING" : "DRAG";
+  hero.style.cursor = on ? (dragging ? "grabbing" : "grab") : "";
 }
 
 hero.addEventListener("pointermove", (e) => {

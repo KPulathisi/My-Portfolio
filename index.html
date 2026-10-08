@@ -2,52 +2,42 @@
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
   <title>Kavinda Pulathisi — Associate Software Developer</title>
   <meta name="description" content="Portfolio of Kavinda Pulathisi, Associate Software Developer from Sri Lanka. Full-stack web apps with React, TypeScript, PHP, Java, C# and SQL." />
   <meta name="theme-color" content="#05070d" />
   <meta property="og:title" content="Kavinda Pulathisi — Associate Software Developer" />
   <meta property="og:description" content="Full-stack developer building web apps with React, TypeScript, PHP & SQL." />
-  <meta property="og:image" content="https://kpulathisi.github.io/My-Portfolio/assets/img/kavinda-portrait.jpg" />
+  <meta property="og:image" content="https://kpulathisi.github.io/My-Portfolio/assets/img/kavinda-portrait.webp" />
   <meta property="og:url" content="https://kpulathisi.github.io/My-Portfolio/" />
   <link rel="canonical" href="https://kpulathisi.github.io/My-Portfolio/" />
   <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml" />
   <link rel="preload" href="assets/fonts/sora-latin-700-normal.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="stylesheet" href="style.css" />
 </head>
-<body class="is-loading">
-
-  <!-- ============ PRELOADER ============ -->
-  <div class="preloader" aria-hidden="true">
-    <div class="preloader__count"><span id="loadCount">0</span>%</div>
-    <div class="preloader__bar"><span></span></div>
-    <div class="preloader__name">Kavinda&nbsp;Pulathisi</div>
-  </div>
-
-  <!-- ============ CURSOR ============ -->
-  <div class="cursor" aria-hidden="true"><div class="cursor__ring"><span class="cursor__label"></span></div><div class="cursor__dot"></div></div>
-
-  <!-- noise overlay -->
-  <div class="grain" aria-hidden="true"></div>
+<body>
 
   <!-- ============ NAV ============ -->
   <header class="nav">
-    <a href="#top" class="nav__logo magnetic" data-cursor="hover">KP<span>.</span></a>
-    <nav class="nav__links">
-      <a href="#about" data-cursor="hover">About</a>
-      <a href="#skills" data-cursor="hover">Skills</a>
-      <a href="#work" data-cursor="hover">Work</a>
-      <a href="#journey" data-cursor="hover">Journey</a>
-      <a href="#contact" data-cursor="hover">Contact</a>
-    </nav>
-    <a href="#contact" class="nav__cta magnetic" data-cursor="hover"><span>Let's talk</span></a>
-    <button class="nav__burger" aria-label="Open menu"><span></span><span></span></button>
+    <div class="nav__inner">
+      <a href="#top" class="nav__logo" aria-label="Kavinda Pulathisi — home">KP<span>.</span></a>
+      <nav class="nav__links" aria-label="Main">
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#work">Work</a>
+        <a href="#journey">Journey</a>
+        <a href="#contact">Contact</a>
+      </nav>
+      <a href="#contact" class="nav__cta">Let's talk</a>
+      <button class="nav__burger" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu"><span></span><span></span></button>
+    </div>
   </header>
-  <div class="mobile-menu">
-    <a href="#about">About</a><a href="#skills">Skills</a><a href="#work">Work</a><a href="#journey">Journey</a><a href="#contact">Contact</a>
+  <div class="mobile-menu" id="mobileMenu">
+    <nav aria-label="Mobile">
+      <a href="#about">About</a><a href="#skills">Skills</a><a href="#work">Work</a><a href="#journey">Journey</a><a href="#contact">Contact</a>
+    </nav>
+    <a class="mobile-menu__mail mono" href="mailto:mdkpjayashan@gmail.com">mdkpjayashan@gmail.com</a>
   </div>
-
-  <div class="scroll-progress" aria-hidden="true"><span></span></div>
 
   <main id="top">
 
@@ -56,273 +46,228 @@
       <!-- live WebGL energy core (hero3d.js) -->
       <canvas id="hero3d" aria-hidden="true"></canvas>
       <div class="hero__shade" aria-hidden="true"></div>
-      <!-- Optional Spline scene is injected here when SPLINE_SCENE is set in main.js -->
+      <!-- Optional Spline scene is injected here when SPLINE_SCENE is set in hero3d.js -->
       <div id="splineMount" class="spline-mount"></div>
-      <p class="hero__hint mono" aria-hidden="true"><i></i><span class="hint--mouse">Drag the core · click anywhere</span><span class="hint--touch">Tap to send a pulse</span></p>
+      <p class="hero__hint mono" aria-hidden="true"><i></i>Drag the core · click anywhere</p>
 
-      <div class="hero__inner">
-        <p class="hero__eyebrow mono"><span class="pulse"></span> Available for opportunities · Sri Lanka</p>
+      <div class="wrap hero__inner">
+        <p class="hero__eyebrow mono"><span class="pulse"></span>Available for opportunities · Sri Lanka</p>
         <h1 class="hero__title">
           <span class="line"><span class="split">Kavinda</span></span>
-          <span class="line line--outline"><span class="split">Pulathisi</span></span>
+          <span class="line line--muted"><span class="split">Pulathisi</span></span>
         </h1>
-        <div class="hero__bottom">
-          <p class="hero__role">
-            <span class="mono">// </span>Associate Software Developer<br />
-            <span class="hero__typed" id="typed">building full-stack web apps</span><span class="caret">|</span>
-          </p>
-          <div class="hero__actions">
-            <a href="#work" class="btn btn--primary magnetic" data-cursor="hover"><span>View my work</span></a>
-            <a href="assets/Kavinda_Pulathisi_CV.pdf" class="btn btn--ghost magnetic" data-cursor="hover" download><span>Download CV</span></a>
-          </div>
-        </div>
-      </div>
-      <div class="hero__scroll mono" aria-hidden="true"><span>Scroll</span><i></i></div>
-    </section>
-
-    <!-- ============ MARQUEE ============ -->
-    <section class="marquee" aria-label="Technologies">
-      <div class="marquee__track">
-        <div class="marquee__row">
-          <span>React</span><b>✦</b><span>TypeScript</span><b>✦</b><span>Node.js</span><b>✦</b><span>PHP</span><b>✦</b><span>Java</span><b>✦</b><span>C#</span><b>✦</b><span>MySQL</span><b>✦</b><span>Firebase</span><b>✦</b><span>Supabase</span><b>✦</b><span>Tailwind</span><b>✦</b>
+        <p class="hero__role">
+          Associate Software Developer<br />
+          <span class="hero__typed" id="typed">building full-stack web apps</span><span class="caret" aria-hidden="true">|</span>
+        </p>
+        <div class="hero__actions">
+          <a href="#work" class="btn btn--primary">View my work</a>
+          <a href="assets/Kavinda_Pulathisi_CV.pdf" class="btn btn--ghost" download>Download CV</a>
         </div>
       </div>
     </section>
 
     <!-- ============ ABOUT ============ -->
-    <section class="about section" id="about">
-      <div class="section__label mono">01 — About</div>
-      <div class="about__grid">
-        <div class="about__media">
-          <div class="about__photo tilt" data-cursor="hover">
-            <img src="assets/img/kavinda-portrait.webp" alt="Portrait of Kavinda Pulathisi" loading="lazy" />
-            <div class="about__photo-glow"></div>
-          </div>
-          <div class="about__badge mono">
-            <svg viewBox="0 0 120 120" class="spin"><defs><path id="circ" d="M60,60 m-46,0 a46,46 0 1,1 92,0 a46,46 0 1,1 -92,0"/></defs><text><textPath href="#circ">CODE · CREATE · DEPLOY · REPEAT · </textPath></text></svg>
-            <span>KP</span>
-          </div>
+    <section class="section about" id="about">
+      <div class="wrap about__grid">
+        <div class="about__photo reveal">
+          <img src="assets/img/kavinda-portrait.webp" alt="Portrait of Kavinda Pulathisi" loading="lazy" />
         </div>
         <div class="about__text">
-          <h2 class="reveal-words">I turn ideas into clean, working software — from database schema to the last pixel of the interface.</h2>
-          <p class="fade-up">I'm Kavinda, an Associate Software Developer from Sri Lanka and currently at Ribelz Integrated, with an HND in IT from SLIATE — ATI Tangalle. I build role-based business systems, real-time web apps and APIs — with a soft spot for well-designed databases and interfaces that feel alive.</p>
-          <p class="fade-up">Lately I've been shipping React + TypeScript apps on Firebase and Supabase, and layered Node/Express backends. Before that, PHP, Java Swing and C# desktop systems taught me the fundamentals: solid data models, secure auth, and software that real people actually use.</p>
-          <div class="stats">
-            <div class="stat"><span class="stat__num" data-count="14">0</span><span class="stat__label">Repos built &amp; contributed to</span></div>
-            <div class="stat"><span class="stat__num" data-count="3">0</span><span class="stat__label">Live web deployments</span></div>
-            <div class="stat"><span class="stat__num" data-count="7" data-suffix="+">0</span><span class="stat__label">Languages &amp; runtimes</span></div>
-          </div>
+          <p class="eyebrow reveal">About</p>
+          <h2 class="about__lead reveal">I turn ideas into clean, working software from database schema to the last pixel of the interface.</h2>
+          <p class="reveal">I'm Kavinda, an Associate Software Developer from Sri Lanka and currently at Ribelz Integrated, with an HND in IT from SLIATE - ATI Tangalle. I build role-based business systems, real-time web apps and APIs with a soft spot for well-designed databases and interfaces that feel alive.</p>
+          <p class="reveal">Lately I've been shipping React + TypeScript apps on Firebase and Supabase, and layered Node/Express backends. Before that, PHP, Java Swing and C# desktop systems taught me the fundamentals: solid data models, secure auth, and software that real people actually use.</p>
+          <dl class="stats reveal">
+            <div><dt>Repos built &amp; contributed to</dt><dd>14</dd></div>
+            <div><dt>Live web deployments</dt><dd>3</dd></div>
+            <div><dt>Languages &amp; runtimes</dt><dd>7+</dd></div>
+          </dl>
         </div>
       </div>
     </section>
 
     <!-- ============ SKILLS ============ -->
-    <section class="skills section" id="skills">
-      <div class="section__label mono">02 — Toolkit</div>
-      <h2 class="section__title"><span class="split-lines">What I build with</span></h2>
-      <div class="skills__grid">
-        <article class="skill-card glow-card" data-cursor="hover">
-          <div class="skill-card__icon">⟨/⟩</div>
-          <h3>Frontend</h3>
-          <p>Responsive, animated interfaces with modern component frameworks.</p>
-          <ul class="chips"><li>React</li><li>TypeScript</li><li>JavaScript</li><li>Tailwind CSS</li><li>Chakra UI</li><li>HTML/CSS</li></ul>
-        </article>
-        <article class="skill-card glow-card" data-cursor="hover">
-          <div class="skill-card__icon">⚙</div>
-          <h3>Backend &amp; APIs</h3>
-          <p>REST APIs, auth, role-based access and layered architectures.</p>
-          <ul class="chips"><li>Node.js</li><li>Express</li><li>PHP</li><li>Zod</li><li>JWT</li><li>Drizzle ORM</li></ul>
-        </article>
-        <article class="skill-card glow-card" data-cursor="hover">
-          <div class="skill-card__icon">⛁</div>
-          <h3>Data &amp; Cloud</h3>
-          <p>Relational design, stored procedures, and real-time cloud backends.</p>
-          <ul class="chips"><li>MySQL</li><li>PostgreSQL</li><li>Firebase</li><li>Supabase</li><li>Firestore</li></ul>
-        </article>
-        <article class="skill-card glow-card" data-cursor="hover">
-          <div class="skill-card__icon">☕</div>
-          <h3>Languages</h3>
-          <p>Comfortable across web, desktop and scripting.</p>
-          <ul class="chips"><li>Java</li><li>C#</li><li>Python</li><li>TypeScript</li><li>PHP</li><li>SQL</li></ul>
-        </article>
-        <article class="skill-card glow-card" data-cursor="hover">
-          <div class="skill-card__icon">⎇</div>
-          <h3>Workflow</h3>
-          <p>Version control, CI deploys and shipping to the web.</p>
-          <ul class="chips"><li>Git &amp; GitHub</li><li>GitHub Actions</li><li>GitHub Pages</li><li>Vite</li><li>Postman</li></ul>
-        </article>
-        <article class="skill-card glow-card" data-cursor="hover">
-          <div class="skill-card__icon">✦</div>
-          <h3>Soft skills</h3>
-          <p>The parts that make the code matter.</p>
-          <ul class="chips"><li>Problem solving</li><li>Leadership</li><li>Teamwork</li><li>Work ethic</li></ul>
-        </article>
+    <section class="section skills" id="skills">
+      <div class="wrap">
+        <header class="section__head reveal">
+          <p class="eyebrow">Toolkit</p>
+          <h2 class="section__title">What I build with</h2>
+        </header>
+        <div class="skills__list">
+          <div class="skill reveal">
+            <div class="skill__name"><h3>Frontend</h3><p>Responsive, animated interfaces with modern component frameworks.</p></div>
+            <ul class="chips"><li>React</li><li>TypeScript</li><li>JavaScript</li><li>Tailwind CSS</li><li>Chakra UI</li><li>HTML/CSS</li></ul>
+          </div>
+          <div class="skill reveal">
+            <div class="skill__name"><h3>Backend &amp; APIs</h3><p>REST APIs, auth, role-based access and layered architectures.</p></div>
+            <ul class="chips"><li>Node.js</li><li>Express</li><li>PHP</li><li>Zod</li><li>JWT</li><li>Drizzle ORM</li></ul>
+          </div>
+          <div class="skill reveal">
+            <div class="skill__name"><h3>Data &amp; Cloud</h3><p>Relational design, stored procedures, and real-time cloud backends.</p></div>
+            <ul class="chips"><li>MySQL</li><li>PostgreSQL</li><li>Firebase</li><li>Supabase</li><li>Firestore</li></ul>
+          </div>
+          <div class="skill reveal">
+            <div class="skill__name"><h3>Languages</h3><p>Comfortable across web, desktop and scripting.</p></div>
+            <ul class="chips"><li>Java</li><li>C#</li><li>Python</li><li>TypeScript</li><li>PHP</li><li>SQL</li></ul>
+          </div>
+          <div class="skill reveal">
+            <div class="skill__name"><h3>Workflow</h3><p>Version control, CI deploys and shipping to the web.</p></div>
+            <ul class="chips"><li>Git &amp; GitHub</li><li>GitHub Actions</li><li>GitHub Pages</li><li>Vite</li><li>Postman</li></ul>
+          </div>
+          <div class="skill reveal">
+            <div class="skill__name"><h3>Soft skills</h3><p>The parts that make the code matter.</p></div>
+            <ul class="chips"><li>Problem solving</li><li>Leadership</li><li>Teamwork</li><li>Work ethic</li></ul>
+          </div>
+        </div>
       </div>
     </section>
 
     <!-- ============ WORK ============ -->
-    <section class="work" id="work">
-      <div class="work__intro section">
-        <div class="section__label mono">03 — Selected work</div>
-        <h2 class="section__title"><span class="split-lines">Projects you can<br/>actually <em>try</em></span></h2>
-        <p class="work__hint mono">Live previews run inside each card · click to open the full demo</p>
-      </div>
-      <div class="work__pin">
-        <div class="work__track" id="workTrack"><!-- cards rendered by main.js --></div>
-      </div>
-      <div class="more section">
-        <h3 class="more__title mono">Team &amp; open-source contributions</h3>
-        <ul class="more__list" id="moreList"><!-- rendered by main.js --></ul>
+    <section class="section work" id="work">
+      <div class="wrap">
+        <header class="section__head reveal">
+          <p class="eyebrow">Selected work</p>
+          <h2 class="section__title">Projects you can actually <em>try</em></h2>
+          <p class="section__sub">Live previews run inside each card. open one to use the full demo.</p>
+        </header>
+        <div class="projects" id="workTrack"><!-- cards rendered by main.js --></div>
+
+        <div class="more">
+          <h3 class="more__title reveal">Team &amp; open-source contributions</h3>
+          <ul class="more__list" id="moreList"><!-- rendered by main.js --></ul>
+          <a class="more__all" href="https://github.com/KPulathisi" target="_blank" rel="noopener">All repos on GitHub <span aria-hidden="true">↗</span></a>
+        </div>
       </div>
     </section>
 
     <!-- ============ JOURNEY ============ -->
-    <section class="journey section" id="journey">
-      <div class="section__label mono">04 — Journey</div>
-      <h2 class="section__title"><span class="split-lines">Where I've been</span></h2>
+    <section class="section journey" id="journey">
+      <div class="wrap">
+        <header class="section__head reveal">
+          <p class="eyebrow">Journey</p>
+          <h2 class="section__title">Where I've been</h2>
+        </header>
 
-      <div class="timeline">
-        <svg class="timeline__line" preserveAspectRatio="none" viewBox="0 0 4 100"><line x1="2" y1="0" x2="2" y2="100" /></svg>
-
-        <div class="tl-group mono"><span>Experience</span></div>
-
-        <div class="tl-item tl-item--now">
-          <span class="tl-item__dot"></span>
-          <div class="tl-card glow-card">
-            <div class="tl-item__top"><span class="tl-item__date mono">Mar 2026 — Present</span><span class="tl-tag tl-tag--live mono">Current role</span></div>
-            <h3>Associate Software Developer</h3>
-            <p class="tl-item__org">Ribelz Integrated (Pvt) Ltd</p>
-            <p class="tl-item__desc">Promoted from intern after six months. Building and maintaining full-stack web applications with React, TypeScript and Node.js.</p>
+        <div class="journey__grid">
+          <div class="journey__col">
+            <h3 class="journey__group mono reveal">Experience</h3>
+            <ol class="tl">
+              <li class="tl__item tl__item--now reveal">
+                <p class="tl__date mono">Mar 2026 — Present <span class="tl__tag tl__tag--live">Current role</span></p>
+                <h4>Associate Software Developer</h4>
+                <p class="tl__org">Ribelz Integrated (Pvt) Ltd</p>
+                <p class="tl__desc">Promoted from intern after six months. Building and maintaining full-stack web applications with React, TypeScript and Node.js.</p>
+              </li>
+              <li class="tl__item reveal">
+                <p class="tl__date mono">Sep 2025 — Mar 2026 <span class="tl__tag">Internship</span></p>
+                <h4>Software Developer Intern</h4>
+                <p class="tl__org">Ribelz Integrated (Pvt) Ltd</p>
+                <p class="tl__desc">Worked on production web projects across the stack, earning a promotion to Associate Software Developer.</p>
+              </li>
+              <li class="tl__item tl__item--now reveal">
+                <p class="tl__date mono">Jun 2025 — Present <span class="tl__tag tl__tag--live">Ongoing</span></p>
+                <h4>Software Engineer Intern</h4>
+                <p class="tl__org">Lunor Labs (Pvt) Ltd</p>
+                <p class="tl__desc">Contributing to client web platforms in a team environment, features, fixes and pull-request based workflows.</p>
+              </li>
+            </ol>
           </div>
-        </div>
 
-        <div class="tl-item tl-item--r">
-          <span class="tl-item__dot"></span>
-          <div class="tl-card glow-card">
-            <div class="tl-item__top"><span class="tl-item__date mono">Sep 2025 — Mar 2026</span><span class="tl-tag mono">Internship</span></div>
-            <h3>Software Developer Intern</h3>
-            <p class="tl-item__org">Ribelz Integrated (Pvt) Ltd</p>
-            <p class="tl-item__desc">Worked on production web projects across the stack — earning a promotion to Associate Software Developer.</p>
-          </div>
-        </div>
-
-        <div class="tl-item tl-item--now">
-          <span class="tl-item__dot"></span>
-          <div class="tl-card glow-card">
-            <div class="tl-item__top"><span class="tl-item__date mono">Jun 2025 — Present</span><span class="tl-tag tl-tag--live mono">Ongoing</span></div>
-            <h3>Software Engineer Intern</h3>
-            <p class="tl-item__org">Lunor Labs (Pvt) Ltd</p>
-            <p class="tl-item__desc">Contributing to client web platforms in a team environment — features, fixes and pull-request based workflows.</p>
-          </div>
-        </div>
-
-        <div class="tl-group mono"><span>Education</span></div>
-
-        <div class="tl-item">
-          <span class="tl-item__dot"></span>
-          <div class="tl-card glow-card">
-            <div class="tl-item__top"><span class="tl-item__date mono">2023 — 2025</span><span class="tl-tag mono">Higher education</span></div>
-            <h3>Higher National Diploma in IT</h3>
-            <p class="tl-item__org">SLIATE — Advanced Technological Institute, Tangalle</p>
-            <p class="tl-item__desc">Sri Lanka Institute of Advanced Technological Education. Software development, databases and systems analysis — final project: a full role-based School Management System.</p>
-          </div>
-        </div>
-
-        <div class="tl-item tl-item--r">
-          <span class="tl-item__dot"></span>
-          <div class="tl-card glow-card">
-            <div class="tl-item__top"><span class="tl-item__date mono">2020</span><span class="tl-tag mono">Bio Science stream</span></div>
-            <h3>GCE Advanced Level</h3>
-            <p class="tl-item__org">Rahula College, Matara</p>
-            <p class="tl-item__desc">Biology, Physics and Chemistry.</p>
-          </div>
-        </div>
-
-        <div class="tl-item">
-          <span class="tl-item__dot"></span>
-          <div class="tl-card glow-card">
-            <div class="tl-item__top"><span class="tl-item__date mono">2017</span><span class="tl-tag mono">6A · 2B · 1C</span></div>
-            <h3>GCE Ordinary Level</h3>
-            <p class="tl-item__org">Rahula College, Matara</p>
-            <ul class="grades">
-              <li><b class="g g--a">A</b>× 6</li>
-              <li><b class="g g--b">B</b>× 2</li>
-              <li><b class="g g--c">C</b>× 1</li>
-            </ul>
-            <p class="tl-item__desc" style="margin-top:12px">Including A's in Mathematics, Science and ICT.</p>
-          </div>
-        </div>
-
-        <div class="tl-item tl-item--r">
-          <span class="tl-item__dot"></span>
-          <div class="tl-card glow-card">
-            <div class="tl-item__top"><span class="tl-item__date mono">Grade 1 — 13</span><span class="tl-tag mono">School</span></div>
-            <h3>School years</h3>
-            <p class="tl-item__desc">Walasmulla Model Primary School (Grade 1–5) → Rahula College, Matara (Grade 6–13).</p>
+          <div class="journey__col">
+            <h3 class="journey__group mono reveal">Education</h3>
+            <ol class="tl">
+              <li class="tl__item reveal">
+                <p class="tl__date mono">2023 — 2025 <span class="tl__tag">Higher education</span></p>
+                <h4>Higher National Diploma in IT</h4>
+                <p class="tl__org"> Advanced Technological Institute, Tangalle</p>
+                <p class="tl__desc">Sri Lanka Institute of Advanced Technological Education. Software development, databases and systems analysis.</p>
+              </li>
+              <li class="tl__item reveal">
+                <p class="tl__date mono">2020 <span class="tl__tag">Bio Science stream</span></p>
+                <h4>GCE Advanced Level</h4>
+                <p class="tl__org">Rahula College, Matara</p>
+                <p class="tl__desc">Biology, Physics and Chemistry.</p>
+              </li>
+              <li class="tl__item reveal">
+                <p class="tl__date mono">2017 <span class="tl__tag">6A · 2B · 1C</span></p>
+                <h4>GCE Ordinary Level</h4>
+                <p class="tl__org">Rahula College, Matara</p>
+                <p class="tl__desc">Including A's in Mathematics, Science and ICT.</p>
+              </li>
+              <li class="tl__item reveal">
+                <p class="tl__date mono">Grade 1 — 13 <span class="tl__tag">School</span></p>
+                <h4>School years</h4>
+                <p class="tl__desc">Walasmulla Model Primary School (Grade 1–5) → Rahula College, Matara (Grade 6–13).</p>
+              </li>
+            </ol>
           </div>
         </div>
       </div>
     </section>
 
     <!-- ============ BEYOND ============ -->
-    <section class="beyond section">
-      <div class="section__label mono">05 — Off the keyboard</div>
-      <div class="beyond__grid">
-        <div class="beyond__card beyond__card--a" data-cursor="hover">
+    <section class="section beyond">
+      <div class="wrap beyond__grid">
+        <div class="beyond__text reveal">
+          <p class="eyebrow">Off the keyboard</p>
+          <h2 class="section__title">Good software is built by curious people.</h2>
+          <p>I stay curious about music, people, and how things work.</p>
+        </div>
+        <figure class="beyond__card reveal">
           <img src="assets/img/kavinda-guitar.webp" alt="Kavinda with a guitar" loading="lazy" />
-          <div class="beyond__cap"><span class="mono">Strings</span><p>When I'm not debugging, I'm usually tuning a guitar.</p></div>
-        </div>
-        <div class="beyond__text">
-          <h2 class="reveal-words">Good software is built by curious people. I stay curious — about music, people, and how things work.</h2>
-        </div>
-        <div class="beyond__card beyond__card--b" data-cursor="hover">
+          <figcaption><span class="mono">Strings</span>When I'm not debugging, I'm usually tuning a guitar.</figcaption>
+        </figure>
+        <figure class="beyond__card reveal">
           <img src="assets/img/kavinda-campus.webp" alt="Kavinda on campus" loading="lazy" />
-          <div class="beyond__cap"><span class="mono">Campus</span><p>SLIATE days — where the projects started.</p></div>
-        </div>
+          <figcaption><span class="mono">Campus</span> Days, where the projects started.</figcaption>
+        </figure>
       </div>
     </section>
 
     <!-- ============ CONTACT ============ -->
-    <section class="contact section" id="contact">
-      <div class="section__label mono">06 — Contact</div>
-      <h2 class="contact__title">
-        <span class="line"><span class="split">Let's build</span></span>
-        <span class="line"><span class="split">something <em>great</em></span></span>
-      </h2>
-      <div class="contact__row">
-        <button class="contact__email magnetic" data-cursor="hover" data-email="mdkpjayashan@gmail.com">
+    <section class="section contact" id="contact">
+      <div class="wrap contact__inner reveal">
+        <p class="eyebrow">Contact</p>
+        <h2 class="contact__title">Let's build something <em>great</em>.</h2>
+        <p class="contact__lead">Have a role, a project or just a question? My inbox is open.</p>
+        <button class="contact__email" data-email="mdkpjayashan@gmail.com" aria-label="Copy email address">
           <span class="contact__email-text">mdkpjayashan@gmail.com</span>
-          <span class="contact__copied mono">Copied ✓</span>
+          <span class="contact__copy mono" aria-hidden="true">Copy</span>
         </button>
-      </div>
-      <div class="socials">
-        <a href="https://github.com/KPulathisi" target="_blank" rel="noopener" class="social magnetic" data-cursor="hover"><span>GitHub</span><i>↗</i></a>
-        <a href="https://www.linkedin.com/in/kavindapulathisi" target="_blank" rel="noopener" class="social magnetic" data-cursor="hover"><span>LinkedIn</span><i>↗</i></a>
-        <a href="mailto:mdkpjayashan@gmail.com" class="social magnetic" data-cursor="hover"><span>Email</span><i>↗</i></a>
-        <a href="tel:+94716727880" class="social magnetic" data-cursor="hover"><span>Phone</span><i>↗</i></a>
+        <ul class="socials">
+          <li><a href="https://github.com/KPulathisi" target="_blank" rel="noopener">GitHub <span aria-hidden="true">↗</span></a></li>
+          <li><a href="https://www.linkedin.com/in/kavindapulathisi" target="_blank" rel="noopener">LinkedIn <span aria-hidden="true">↗</span></a></li>
+          <li><a href="mailto:mdkpjayashan@gmail.com">Email <span aria-hidden="true">↗</span></a></li>
+          <li><a href="tel:+94716727880">Phone <span aria-hidden="true">↗</span></a></li>
+        </ul>
       </div>
     </section>
   </main>
 
-  <footer class="footer mono">
-    <span>© <span id="year"></span> Kavinda Pulathisi</span>
-    <span>Matara, Sri Lanka · <span id="localTime">--:--</span></span>
-    <a href="#top" data-cursor="hover">Back to top ↑</a>
+  <footer class="footer">
+    <div class="wrap footer__inner mono">
+      <span>© <span id="year"></span> Kavinda Pulathisi</span>
+      <span>Matara, Sri Lanka · <span id="localTime">--:--</span></span>
+      <a href="#top">Back to top ↑</a>
+    </div>
   </footer>
 
+  <div class="toast mono" id="toast" role="status" aria-live="polite"></div>
+
   <!-- ============ DEMO MODAL ============ -->
-  <div class="modal" id="demoModal" aria-hidden="true" role="dialog" aria-modal="true">
+  <div class="modal" id="demoModal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
     <div class="modal__backdrop" data-close></div>
     <div class="modal__panel">
       <div class="modal__bar">
-        <button class="modal__back" data-close aria-label="Back to portfolio" data-cursor="hover">← <span>Back</span></button>
+        <button class="modal__back" data-close aria-label="Back to portfolio">← <span>Back</span></button>
         <div class="modal__title" id="modalTitle"></div>
         <div class="modal__url mono" id="modalUrl"></div>
         <div class="modal__tools">
-          <button class="modal__btn" data-view="desktop" aria-label="Desktop view" data-cursor="hover">▭</button>
-          <button class="modal__btn" data-view="mobile" aria-label="Mobile view" data-cursor="hover">▯</button>
-          <a class="modal__btn" id="modalOpen" target="_blank" rel="noopener" aria-label="Open in new tab" data-cursor="hover">↗</a>
-          <button class="modal__btn" data-close aria-label="Close" data-cursor="hover">✕</button>
+          <button class="modal__btn" data-view="desktop" aria-label="Desktop view">▭</button>
+          <button class="modal__btn" data-view="mobile" aria-label="Mobile view">▯</button>
+          <a class="modal__btn" id="modalOpen" target="_blank" rel="noopener" aria-label="Open in new tab">↗</a>
+          <button class="modal__btn" data-close aria-label="Close">✕</button>
         </div>
       </div>
       <div class="modal__body" id="modalBody"></div>
