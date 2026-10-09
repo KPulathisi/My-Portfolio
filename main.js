@@ -75,7 +75,7 @@
         }
         ioFrames.unobserve(en.target);
       }),
-    { rootMargin: "400px 0px" }
+    { rootMargin: "400px 100%" } // wide sideways margin so off-screen cards in the scroller load ahead
   );
   $$(".project").forEach((p) => ioFrames.observe(p));
 
@@ -184,7 +184,7 @@
   /* ------------------------------------------------------------------
      Typed role text
   ------------------------------------------------------------------ */
-  const phrases = ["building full-stack web apps", "designing clean databases", "shipping React + TypeScript", "crafting APIs that scale", "turning ideas into products"];
+  const phrases = ["building full-stack web apps", "shipping Laravel + Vue apps", "crafting React + Next.js interfaces", "designing clean databases", "building APIs that scale", "turning ideas into products"];
   const typed = $("#typed");
   let pi = 0;
   function cycle() {
@@ -209,6 +209,54 @@
       onUpdate: (s) => window.hero3d && (window.hero3d.state.scroll = s.progress) }
   }).to(".hero__inner, .hero__hint", { yPercent: -12, opacity: 0, ease: "none" }, 0);
 
+  /* ------------------------------------------------------------------
+     Work: pinned sideways scroll on screens with room for it.
+     Phones, short windows and reduced motion keep the stacked list.
+  ------------------------------------------------------------------ */
+  const work = $(".work");
+  const cards = $$(".project", track);
+  const count = $("#workCount");
+  const bar = $("#workBar");
+  const pad = (n) => String(n).padStart(2, "0");
+  count.textContent = `01 / ${pad(cards.length)}`;
+  if (!reduce && cards.length > 1) {
+    gsap.matchMedia().add("(min-width: 1001px) and (min-height: 600px), (min-width: 768px) and (min-height: 820px)", () => {
+      work.classList.add("is-h");
+      fitPreviews();
+      const pin = $(".work__pin");
+      const dist = () => Math.max(0, track.scrollWidth - pin.clientWidth);
+      const tween = gsap.to(track, {
+        x: () => -dist(),
+        ease: "none",
+        scrollTrigger: {
+          trigger: pin,
+          start: "top top",
+          end: () => "+=" + dist(),
+          pin: true,
+          scrub: 0.6,
+          invalidateOnRefresh: true,
+          anticipatePin: 1,
+          refreshPriority: 1, // measure the pin before the triggers below it
+          onUpdate: (s) => {
+            bar.style.transform = `scaleX(${s.progress})`;
+            count.textContent = `${pad(Math.round(s.progress * (cards.length - 1)) + 1)} / ${pad(cards.length)}`;
+          }
+        }
+      });
+      // upcoming cards sit dimmed and brighten as they slide in
+      cards.slice(1).forEach((card) =>
+        gsap.fromTo(card.querySelectorAll(".project__media, .project__body"), { opacity: 0.35 }, {
+          opacity: 1, ease: "none",
+          scrollTrigger: { trigger: card, containerAnimation: tween, start: "left 95%", end: "left 50%", scrub: true }
+        })
+      );
+      return () => {
+        work.classList.remove("is-h");
+        gsap.set(track, { clearProps: "transform" });
+        requestAnimationFrame(fitPreviews);
+      };
+    });
+  }
   /* ------------------------------------------------------------------
      Gentle reveal on scroll
   ------------------------------------------------------------------ */
