@@ -10,42 +10,22 @@
    ========================================================================= */
 window.PROJECTS = [
   {
-    id: "isdn",
-    title: "IslandLink Sales Distribution Network",
-    short: "ISDN",
+    id: "ceylon-serpents",
+    title: "Ceylon Serpents",
+    short: "Ceylon Serpents",
     year: "2026",
-    tagline: "Multi-role distribution platform for wholesale & retail operations across regional centers.",
+    tagline: "An immersive, trilingual field guide to the snakes of Sri Lanka.",
     description:
-      "A production-style web app that runs the full order lifecycle — product catalog, multi-location real-time inventory, delivery tracking, payments and an analytics dashboard — with separate experiences for retail customers, RDC staff, logistics teams and head-office admins.",
+      "An educational Vue 3 site in English, Sinhala and Tamil. Visitors can search and filter a snake library, compare species, explore habitats on an island map, learn folklore and myths vs facts, and get optional AI photo suggestions powered by Google Gemini through a Cloudflare Worker. Includes a fast, image-free snakebite first-aid page and a local-only admin panel for managing content.",
     highlights: [
-      "Role-based access for 4 user types",
-      "Real-time Firestore inventory sync",
-      "Analytics dashboard with Recharts",
-      "Dark / light theme, mobile-first"
+      "Trilingual: English, Sinhala & Tamil",
+      "Searchable snake library with compare view",
+      "AI photo suggestions (Gemini + Cloudflare Worker)",
+      "Local admin panel for species & content"
     ],
-    stack: ["React 18", "TypeScript", "Firebase", "Tailwind", "Zustand", "Recharts"],
-    live: "https://kpulathisi.github.io/SDN/",
-    repo: "https://github.com/KPulathisi/SDN",
-    screenshots: [],
-    accent: "#6b94ff"
-  },
-  {
-    id: "richlife",
-    title: "Rich Life Apparel",
-    short: "Rich Life",
-    year: "2026",
-    tagline: "A modern, animated storefront for a clothing brand.",
-    description:
-      "Brand website for an apparel label with an announcement bar, animated hero, collections for men, women and accessories, new arrivals, brand story, testimonials and newsletter — built as a fast single-page React app and deployed automatically with GitHub Actions.",
-    highlights: [
-      "Component-driven React + Chakra UI",
-      "Animated hero & marquee banner",
-      "Responsive collection grids",
-      "CI/CD to GitHub Pages"
-    ],
-    stack: ["React", "TypeScript", "Chakra UI", "Tailwind", "Vite"],
-    live: "https://kpulathisi.github.io/Richlife/",
-    repo: "https://github.com/KPulathisi/Richlife",
+    stack: ["Vue 3", "Vite", "GSAP", "Gemini API", "Cloudflare Workers", "GitHub Actions"],
+    live: "https://kpulathisi.github.io/Ceylon-Serpents/",
+    repo: "https://github.com/KPulathisi/Ceylon-Serpents",
     screenshots: [],
     accent: "#7ad7ff"
   },
@@ -69,6 +49,26 @@ window.PROJECTS = [
     repo: "https://github.com/KPulathisi/Final-Project2",
     screenshots: ["assets/projects/school-php/1.webp", "assets/projects/school-php/2.webp", "assets/projects/school-php/3.webp"],
     accent: "#a5b4fc"
+  },
+  {
+    id: "isdn",
+    title: "IslandLink Sales Distribution Network",
+    short: "ISDN",
+    year: "2026",
+    tagline: "Multi-role distribution platform for wholesale & retail operations across regional centers.",
+    description:
+      "A production-style web app that runs the full order lifecycle — product catalog, multi-location real-time inventory, delivery tracking, payments and an analytics dashboard — with separate experiences for retail customers, RDC staff, logistics teams and head-office admins.",
+    highlights: [
+      "Role-based access for 4 user types",
+      "Real-time Firestore inventory sync",
+      "Analytics dashboard with Recharts",
+      "Dark / light theme, mobile-first"
+    ],
+    stack: ["React 18", "TypeScript", "Firebase", "Tailwind", "Zustand", "Recharts"],
+    live: "https://kpulathisi.github.io/SDN/",
+    repo: "https://github.com/KPulathisi/SDN",
+    screenshots: [],
+    accent: "#6b94ff"
   }
 ];
 
