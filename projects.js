@@ -9,6 +9,27 @@
                 Leave [] to show a placeholder until you add them.
    ========================================================================= */
 window.PROJECTS = [
+  
+  {
+    id: "ceylon-serpents",
+    title: "Ceylon Serpents",
+    short: "Ceylon Serpents",
+    year: "2026",
+    tagline: "An immersive, trilingual field guide to the snakes of Sri Lanka.",
+    description:
+      "An educational Vue 3 site in English, Sinhala and Tamil. Visitors can search and filter a snake library, compare species, explore habitats on an island map, learn folklore and myths vs facts, and get optional AI photo suggestions powered by Google Gemini through a Cloudflare Worker. Includes a fast, image-free snakebite first-aid page and a local-only admin panel for managing content.",
+    highlights: [
+      "Trilingual: English, Sinhala & Tamil",
+      "Searchable snake library with compare view",
+      "AI photo suggestions (Gemini + Cloudflare Worker)",
+      "Local admin panel for species & content"
+    ],
+    stack: ["Vue 3", "Vite", "GSAP", "Gemini API", "Cloudflare Workers", "GitHub Actions"],
+    live: "https://kpulathisi.github.io/Ceylon-Serpents/",
+    repo: "https://github.com/KPulathisi/Ceylon-Serpents",
+    screenshots: [],
+    accent: "#7ad7ff"
+  },
   {
     id: "volt",
     title: "VOLT: Interactive 3D Showroom",
@@ -48,26 +69,6 @@ window.PROJECTS = [
     repo: "https://github.com/KPulathisi/AUREL",
     screenshots: [],
     accent: "#c9a86a"
-  },
-  {
-    id: "ceylon-serpents",
-    title: "Ceylon Serpents",
-    short: "Ceylon Serpents",
-    year: "2026",
-    tagline: "An immersive, trilingual field guide to the snakes of Sri Lanka.",
-    description:
-      "An educational Vue 3 site in English, Sinhala and Tamil. Visitors can search and filter a snake library, compare species, explore habitats on an island map, learn folklore and myths vs facts, and get optional AI photo suggestions powered by Google Gemini through a Cloudflare Worker. Includes a fast, image-free snakebite first-aid page and a local-only admin panel for managing content.",
-    highlights: [
-      "Trilingual: English, Sinhala & Tamil",
-      "Searchable snake library with compare view",
-      "AI photo suggestions (Gemini + Cloudflare Worker)",
-      "Local admin panel for species & content"
-    ],
-    stack: ["Vue 3", "Vite", "GSAP", "Gemini API", "Cloudflare Workers", "GitHub Actions"],
-    live: "https://kpulathisi.github.io/Ceylon-Serpents/",
-    repo: "https://github.com/KPulathisi/Ceylon-Serpents",
-    screenshots: [],
-    accent: "#7ad7ff"
   },
   {
     id: "school-php",
