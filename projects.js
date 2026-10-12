@@ -10,6 +10,46 @@
    ========================================================================= */
 window.PROJECTS = [
   {
+    id: "volt",
+    title: "VOLT: Interactive 3D Showroom",
+    short: "VOLT",
+    year: "2026",
+    tagline: "A cinematic digital showroom for a fictional electric car brand.",
+    description:
+      "A static Vue 3 site built around a real-time 3D car that I generate in code with Three.js, with no model files. Visitors orbit the car, change paint, wheels, interior and packages and see the geometry, materials and price update live. The configurator validates every option, shares builds through the URL, saves to the device and exports a PNG spec sheet. Includes a pinned scroll story, animated specs, a charging-curve calculator, model comparison and a 2D fallback when WebGL is unavailable.",
+    highlights: [
+      "Procedural Three.js car, no 3D assets",
+      "Live configurator with validated pricing",
+      "Shareable URL state & PNG spec sheet",
+      "GSAP scroll story, 2D fallback, a11y"
+    ],
+    stack: ["Vue 3", "Three.js", "GSAP", "Lenis", "Vite", "GitHub Actions"],
+    live: "https://kpulathisi.github.io/Volt/",
+    repo: "https://github.com/KPulathisi/Volt",
+    screenshots: [],
+    accent: "#c5f23a"
+  },
+  {
+    id: "aurel",
+    title: "AUREL: Luxury Resort Website",
+    short: "AUREL",
+    year: "2026",
+    tagline: "An immersive, scroll-driven site for a fictional boutique resort in Sri Lanka.",
+    description:
+      "An editorial Vue 3 website for a fictional ocean resort near Tangalle. Built around motion: masked headline reveals, clip-path image wipes, parallax, a pinned horizontal architecture walk, a self-drawing map of the south coast and hover-driven galleries. Includes a room explorer with a keyboard-friendly lightbox, a booking enquiry that calculates an estimate without a server, and a local-only admin for content and media uploads.",
+    highlights: [
+      "GSAP ScrollTrigger, SplitText, Flip & DrawSVG",
+      "Pinned horizontal scroll section",
+      "Booking estimate with validation",
+      "Local admin with WebP image uploads"
+    ],
+    stack: ["Vue 3", "Vite", "GSAP", "Lenis", "GitHub Actions"],
+    live: "https://kpulathisi.github.io/AUREL/",
+    repo: "https://github.com/KPulathisi/AUREL",
+    screenshots: [],
+    accent: "#c9a86a"
+  },
+  {
     id: "ceylon-serpents",
     title: "Ceylon Serpents",
     short: "Ceylon Serpents",
